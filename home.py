@@ -2,6 +2,12 @@ import streamlit as st
 
 def home():
   global is_logged_in
+  def integer(x: int):
+    if x is "":
+      x = 0
+    else:
+      x = int(x)
+    return x
   @st.dialog("Your login code")
   def number(new_code: int):
     st.write(f"Copy or save the bellow code so you can paste it when login. You can also find this code in the settings tab.\n{new_code}")
@@ -29,7 +35,7 @@ def home():
     sign_up = st.button(label="Sign Up")
     if sign_up:
       with open("codes.txt", "r") as f:
-        new_code = int(f.readline().strip()) + 1
+        new_code = integer(f.readline().strip()) + 1
       with open(f"{new_code}.txt", "x") as f:
         pass
       with open("codes.txt", "w") as f:
