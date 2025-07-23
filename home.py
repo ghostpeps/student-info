@@ -12,7 +12,7 @@ def home():
       pass
   except NameError:
     st.title("Login")
-    global code
+    global new_code
     code = st.text_input(label="Enter your login code:", placeholder="e.g. 0123456789")
     login = st.button(label="Login")
     if login:
@@ -29,17 +29,11 @@ def home():
     sign_up = st.button(label="Sign Up")
     if sign_up:
       with open("codes.txt", "r") as f:
-        new_code = 0
-        global c
-        for c_str in f.readline().strip():
-          c = c_str.strip()
-          if int(c) > new_code:
-            new_code = int(c)
-        new_code += 1
+        new_code = int(f.readline().strip()) + 1
       with open(f"{new_code}.txt", "x") as f:
         pass
-      with open("codes.txt", "a") as f:
-        f.write(f"{new_code}\n")
+      with open("codes.txt", "w") as f:
+        f.write(f"{new_code}")
       number(new_code)
       is_logged_in = True
   else:
