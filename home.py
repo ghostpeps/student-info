@@ -29,8 +29,7 @@ def home():
       with open("codes.txt", "r") as f:
         new_code = 0
         global c
-        c = f.readline().strip()
-        for c_str in f:
+        for c_str in f.readline().strip():
           c = c_str.strip()
           if int(c) > new_code:
             new_code = int(c)
