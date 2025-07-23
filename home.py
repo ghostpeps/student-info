@@ -27,7 +27,7 @@ def home():
         with open(f"{code}.txt", "r") as f:
           pass
       except FileNotFoundError:
-        st.markdown("Please enter a valid login code or sign up.")
+        st.markdown(":red[Please enter a valid login code or sign up.]")
         is_logged_in = False
       else:
         is_logged_in = True
