@@ -42,7 +42,7 @@ def home():
       number(new_code)
       is_logged_in = True
   else:
-
+    pass
 pages = [
   st.Page(page=home(), title="Home", icon=":material/home:"),
   st.Page(page="settings.py", title="Settings", icon=":material/settings:")
