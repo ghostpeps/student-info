@@ -3,7 +3,7 @@ import streamlit as st
 def home():
   global is_logged_in
   def integer(x: int):
-    if x is "":
+    if x == "":
       x = 0
     else:
       x = int(x)
