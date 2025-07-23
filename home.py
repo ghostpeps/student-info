@@ -1,6 +1,11 @@
 import streamlit as st
 
 def home():
+  @st.dialog("Your login code")
+  def number(new_code: int):
+    st.write(f"Copy or save the bellow code so you can paste it when login. You can also find this code in the settings tab.\n{new_code}")
+    if st.button(label="close"):
+      st.rerun()
   try:
     if is_logged_in == True:
       pass
@@ -34,6 +39,11 @@ def home():
         pass
       with open("codes.txt", "a") as f:
         f.write(f"{new_code}\n")
+      number(new_code)
       is_logged_in = True
   else:
-    
+
+pages = [
+  st.Page(page=home(), title="Home", icon=":material/home:"),
+  st.Page(page="settings.py", title="Settings", icon=":material/settings:")
+]
