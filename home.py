@@ -50,3 +50,5 @@ pages = [
   st.Page(page=home(), title="Home", icon=":material/home:"),
   st.Page(page="settings.py", title="Settings", icon=":material/settings:")
 ]
+pgs = st.navigation(pages)
+pgs.run()
