@@ -1,6 +1,7 @@
 import streamlit as st
 
 def home():
+  global is_logged_in
   @st.dialog("Your login code")
   def number(new_code: int):
     st.write(f"Copy or save the bellow code so you can paste it when login. You can also find this code in the settings tab.\n{new_code}")
@@ -11,7 +12,6 @@ def home():
       pass
   except NameError:
     st.title("Login")
-    global is_logged_in
     global code
     code = st.text_input(label="Enter your login code:", placeholder="e.g. 0123456789")
     try:
