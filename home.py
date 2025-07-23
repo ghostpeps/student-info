@@ -30,10 +30,10 @@ def home():
         new_code = 0
         global c
         c = f.readline().strip()
-        while c != "":
+        for c_str in f:
+          c = c_str.strip()
           if int(c) > new_code:
-            new_code = c
-          c = f.readline().strip()
+            new_code = int(c)
         new_code += 1
       with open(f"{new_code}.txt", "x") as f:
         pass
