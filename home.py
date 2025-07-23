@@ -14,15 +14,17 @@ def home():
     st.title("Login")
     global code
     code = st.text_input(label="Enter your login code:", placeholder="e.g. 0123456789")
-    try:
-      global f
-      with open(f"{code}.txt", "r") as f:
-        pass
-    except FileNotFoundError:
-      st.markdown("Please enter a valid login code or sign up.")
-      is_logged_in = False
-    else:
-      is_logged_in = True
+    login = st.button(label="Login")
+    if login:
+      try:
+        global f
+        with open(f"{code}.txt", "r") as f:
+          pass
+      except FileNotFoundError:
+        st.markdown("Please enter a valid login code or sign up.")
+        is_logged_in = False
+      else:
+        is_logged_in = True
     st.title("Sign Up")
     sign_up = st.button(label="Sign Up")
     if sign_up:
